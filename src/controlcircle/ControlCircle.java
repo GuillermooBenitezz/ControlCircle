@@ -6,7 +6,6 @@ package controlcircle;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -39,23 +38,13 @@ public class ControlCircle extends Application
         hBox.getChildren().add(btn2);
        
 
-        btn.setOnAction(new EventHandler<ActionEvent>()
-        {
-            @Override
-            public void handle(ActionEvent e) 
-            {
-                circle.setRadius(circle.getRadius() + 2);
-            }
+        btn.setOnAction((ActionEvent e) -> {
+            circle.setRadius(circle.getRadius() + 2);
         });
         
-        btn2.setOnAction(new EventHandler<ActionEvent>()
-        {
-            @Override
-            public void handle(ActionEvent e) 
-            {
-                circle.setRadius(circle.getRadius() > 2
-                ? circle.getRadius() - 2 : circle.getRadius());
-            }
+        btn2.setOnAction((ActionEvent e) -> {
+            circle.setRadius(circle.getRadius() > 2
+                    ? circle.getRadius() - 2 : circle.getRadius());
         });
         
         BorderPane borderPane = new BorderPane();
