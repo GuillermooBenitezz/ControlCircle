@@ -38,10 +38,25 @@ public class ControlCircle extends Application
         hBox.getChildren().add(btn);
         hBox.getChildren().add(btn2);
        
-        
-        btn.setOnAction(new EnlargeHandler());
-        btn2.setOnAction(new ShrinkHandler());        
 
+        btn.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e) 
+            {
+                circle.setRadius(circle.getRadius() + 2);
+            }
+        });
+        
+        btn2.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e) 
+            {
+                circle.setRadius(circle.getRadius() > 2
+                ? circle.getRadius() - 2 : circle.getRadius());
+            }
+        });
         
         BorderPane borderPane = new BorderPane();
         borderPane.setBottom(hBox);
@@ -62,26 +77,6 @@ public class ControlCircle extends Application
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    
-        
-        class EnlargeHandler implements EventHandler<ActionEvent> 
-        {
-            @Override
-            public void handle(ActionEvent e) 
-            {
-                circle.setRadius(circle.getRadius() + 2);
-            }
-        }
-        
-        class ShrinkHandler implements EventHandler<ActionEvent> 
-        {
-            @Override
-            public void handle(ActionEvent e) 
-            {
-                circle.setRadius(circle.getRadius() > 2
-                ? circle.getRadius() - 2 : circle.getRadius());
-            }
-        }
         
     /**
      * @param args the command line arguments
