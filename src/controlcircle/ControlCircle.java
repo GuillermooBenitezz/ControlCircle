@@ -58,7 +58,7 @@ public class ControlCircle extends Application
         circle.setStroke(Color.BLACK);
         circle.setFill(Color.WHITE);
         
-        borderPane.setCenter(circle);
+        borderPane.getChildren().add(circle);
         
         Scene scene = new Scene(borderPane, 300, 250);
         
