@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 public class ControlCircle extends Application 
 {
     
-    private Circle circle = new Circle();
+    private final Circle circle = new Circle();
     
     
     @Override
